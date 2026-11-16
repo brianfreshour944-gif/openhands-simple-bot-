@@ -23,6 +23,7 @@ import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
+from alpaca.common.enums import BaseURL
 from alpaca.data.historical import CryptoHistoricalDataClient
 from alpaca.data.requests import CryptoLatestQuoteRequest
 from alpaca.trading.client import TradingClient
@@ -220,8 +221,9 @@ def make_clients():
         sys.exit(1)
 
     trading = TradingClient(api_key, secret_key, paper=True)
-    # Startup check: refuse to run if paper mode is not enabled.
-    if not trading.is_paper_api:
+    # Startup check: refuse to run if paper mode is not enabled. alpaca-py
+    # exposes the endpoint via _base_url (TRADING_PAPER vs TRADING_LIVE).
+    if str(trading._base_url) != str(BaseURL.TRADING_PAPER):
         log.error("PAPER mode not enabled on the trading client - refusing to run.")
         sys.exit(1)
 
