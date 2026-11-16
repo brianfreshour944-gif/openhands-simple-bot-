@@ -1,0 +1,13 @@
+{
+    "budget_total_usd": 100,
+    "coins": ["BTC/USD", "ETH/USD", "SOL/USD"],
+    "entry_price": {"BTC/USD": 65000, "ETH/USD": 1839, "SOL/USD": 72},
+    "entry_tolerance_pct": 0.5,
+    "first_buy_usd": {"BTC/USD": 16.67, "ETH/USD": 16.67, "SOL/USD": 16.67},
+    "add_trigger_pct": 10,
+    "second_buy_usd": {"BTC/USD": 16.66, "ETH/USD": 16.66, "SOL/USD": 16.66},
+    "sell_target_pct": 20,
+    "fee_pct_per_side": 0.25,
+    "poll_interval_seconds": 60,
+    "min_order_usd": 1.0
+}
